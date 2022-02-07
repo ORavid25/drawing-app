@@ -1,10 +1,12 @@
 import "./style.css";
-import Logo from "./assats/logo.jpg";
+import Logo from "./assats/logo-social.png";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   return (
       <div className="main-wrapper">
-        <div className="header-container"></div>
+        <Header/>
         <div className="main-container">
           <div className="logo-container">
               <img src={Logo} width="800"/>
@@ -20,7 +22,10 @@ function App() {
 
         </div>
         <div className="container">
-
+          <div className="info-content">
+              <h1>HelloWorld</h1>
+          </div>
+          <Footer/>
         </div>
       </div>
   );
