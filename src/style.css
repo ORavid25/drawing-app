@@ -90,6 +90,15 @@
   cursor: pointer;
 }
 
+.roomDisplay-container{
+  min-width: 30%;
+  max-height: 800px;
+  display:flex;
+  
+  align-items: center;
+}
+
+
 .footer{
     display: flex;
     min-height: 90px;

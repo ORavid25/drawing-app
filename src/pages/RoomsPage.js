@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import "../style.css";
+
 import RoomForm from '../components/RoomForm';
+import RoomsDisplay from '../components/RoomsDisplay';
 import Header from '../components/Header';
 
 const RoomsPage = () => {
@@ -13,8 +15,9 @@ const RoomsPage = () => {
                     <RoomForm />
                    
                 </div>
-                <div className="channels" >
+                <div className="roomDisplay-container" >
 
+                    <RoomsDisplay/>
                 </div>
             </div>
         </div>

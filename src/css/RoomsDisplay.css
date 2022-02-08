@@ -1,0 +1,23 @@
+.rooms-container{
+  
+    min-width: 90%;
+    max-height: 80%;
+    border-radius:8px;
+    overflow-y: auto;
+}
+
+.card-container{
+    display:flex;
+    min-height: 80px;
+    max-height: auto;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+    background-color:rgba(236, 236, 236, 0.8);
+    border-radius: 8px;
+    margin-bottom: 5px;
+}
+.card-container:hover{
+    background-color:rgba(35, 26, 116, 0.8);
+    color:white;
+}
