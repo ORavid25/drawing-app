@@ -3,7 +3,6 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import bigRoller from "../assats/paintroller1.png";
 import {  Link } from "react-router-dom";
-import RoomsDisplay from "../components/RoomsDisplay";
 
 const homePage = () => {
   return (
@@ -29,7 +28,6 @@ const homePage = () => {
         <div className="info-content">
 
           <h1>HelloWorld</h1>
-            <RoomsDisplay/>
       
         </div>
         <Footer />
