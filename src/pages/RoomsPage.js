@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import "../style.css";
+import RoomForm from '../components/RoomForm';
+import Header from '../components/Header';
 
 const RoomsPage = () => {
     return (
         <div className="main-wrapper" >
-            <div className="header-container"></div>
+            <Header/>
             <div className="main-container">
-                <div className="create-room" style={{backgroundColor: 'red'}}>
-                    <button className="btnCreateRoom">צור חדר</button>
+                <div className="create-room">
+                   
+                    <RoomForm />
+                   
                 </div>
-                <div className="channels" style={{backgroundColor: 'green'}} >
+                <div className="channels" >
 
                 </div>
             </div>
