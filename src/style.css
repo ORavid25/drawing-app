@@ -21,7 +21,7 @@
 
 .header-container {
   min-height: 80px;
-  background-color: #cbcbcb;
+  background-color:rgba(236, 236, 236, 0.8);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -90,100 +90,8 @@
   cursor: pointer;
 }
 
-.footer {
-  display: flex;
-  min-height: 90px;
-  background-color: green;
-}
-
-
-.channels {
-  width: 30%;
-  min-height: 50%;
-}
-
-/*
-Room Form css
-*/
-.inputs-room-container {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  margin-top: 40px;
-}
-
-.create-room-wrapper {
-  max-width: 70%;
-  min-height: 70%;
-  background-color: rgba(255, 255, 255, 0.4);
-  border-radius: 8px;
-  box-shadow: 0 3px 10px rgb(0 0 0 /0.156);
-}
-
-.title-container>h1 {
-  text-align: center;
-  margin-top: 3%;
-  margin-bottom: 2%;
-}
-
-.title-container>h2 {
-  margin: 2% 15%;
-  font-weight: 300;
-}
-
-.fields-wrapper {
-  min-width: 100%;
-  min-height: 50%;
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-.fields-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.fields-container>label {
-  font-size: 1.8rem;
-  margin-bottom: 10px;
-
-}
-
-.fields-container>input {
-  width: 200px;
-  height: 40px;
-  font-size: 1.3rem;
-  text-align: center;
-}
-
-.create-room {
-  display: flex;
-  width: 70%;
-  min-height: 50%;
-  /* justify-content: center;
-  align-items: center; */
-}
-
-
-.btnCreateRoom {
-  display: flex;
-  justify-content:center; 
-  align-items: center;
-
-}
-
-.btnCreateRoom > button {
-  min-width: 30%;
-  min-height: 50px;
-  font-weight: bold;
-  font-size: 18pt;
-  background-color: #5e60ce;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
+.footer{
+    display: flex;
+    min-height: 90px;
+    background-color:rgba(236, 236, 236, 0.8);
+  }
