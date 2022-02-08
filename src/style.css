@@ -23,11 +23,16 @@
 
 .header-container {
   min-height: 80px;
-  background-color: #cbcbcb;
+  background-color:rgba(236, 236, 236, 0.8);
+
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.1);
+
+
+
 }
 
 .main-container {
