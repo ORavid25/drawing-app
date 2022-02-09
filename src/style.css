@@ -78,7 +78,30 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: red;
+}
+
+.flex-layout{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.explain-web-card{
+  min-height:800px;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  margin:10px;
+  color:white;
+  font-size:15pt;
+  
+}
+
+.explain-web-card > h3{
+  margin-top: 100px;
 }
 
 .btn {
