@@ -4,6 +4,7 @@
   border: 0;
 }
 
+
 .container {
   min-width: 100%;
   min-height: 100vh;
@@ -92,10 +93,10 @@
 
 .roomDisplay-container{
   min-width: 30%;
-  max-height: 800px;
+  max-height: 700px;
   display:flex;
-  
   align-items: center;
+  overflow: hidden;
 }
 
 
