@@ -7,7 +7,9 @@ import {GoPaintcan} from "react-icons/go"
 import {FiUsers} from "react-icons/fi";
 import {FaUserEdit} from "react-icons/fa";
 
-const homePage = () => {
+
+const HomePage = () => {
+ 
   return (
     <div className="main-wrapper">
       <Header />
@@ -55,4 +57,4 @@ const homePage = () => {
   );
 };
 
-export default homePage;
+export default HomePage;
