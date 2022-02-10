@@ -1,9 +1,11 @@
 import React from 'react';
 import '../css/RoomForm.css'
+import { Link, useNavigate } from 'react-router-dom';
+
 
 const RoomForm = () => {
+const navigate = useNavigate();
     return (
-
         <div className="inputs-room-container">
             <div className="create-room-wrapper">
                 <div className="title-container">
@@ -22,8 +24,10 @@ const RoomForm = () => {
                     </div>
                 </div>
 
-                <div className="btnCreateRoom">
-                    <button className="btn" >Create</button>
+                <div className="btnCreateRoomContainer">
+                    <button className="btnCreateRoom" onClick={()=>{
+                        navigate('/canvasRoom');
+                    }}>Create</button>
                 </div>
 
             </div>

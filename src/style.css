@@ -4,7 +4,6 @@
   border: 0;
 }
 
-
 .container {
   min-width: 100%;
   min-height: 100vh;
@@ -89,15 +88,18 @@
 }
 
 .explain-web-card{
-  min-height:800px;
+  background-color: #E9ECEF;
+  min-height:500px;
   display:flex;
   flex-direction: column;
   justify-content: center;
   align-items:center;
   margin:10px;
-  color:white;
+  color:black;
   font-size:15pt;
-  
+  padding:20px;
+  border-radius:10px;
+  box-shadow: 0 3px 10px rgb(0 0 0 /0.3);
 }
 
 .explain-web-card > h3{
