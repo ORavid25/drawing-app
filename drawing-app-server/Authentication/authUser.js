@@ -3,13 +3,13 @@ const OktaJwtVerifier = require('@okta/jwt-verifier');
 const okta = require('@okta/okta-sdk-nodejs');
 
 const jwtVerifier = new OktaJwtVerifier({
-  clientId: '0oa3hi8kfkJglkCqT5d7',
-  issuer: 'https://dev-25664134.okta.com/oauth2/default',
+  clientId: process.env.REACT_APP_OKTA_CLIENT_ID,
+  issuer: process.env.JWT_ISSUER_OKTA,
 });
 
 const oktaClient = new okta.Client({
-  orgUrl: 'https://dev-25664134.okta.com',
-  token: '00M_Mxss3MMt0TYu1T6hYh9G9Nc1DsuLoFeLKoe_Bc',
+  orgUrl:process.env.REACT_APP_OKTA_ORG_URL,
+  token: process.env.TOKEN_APP_OKTA_CLIENT,
 });
 
 const users = [];
