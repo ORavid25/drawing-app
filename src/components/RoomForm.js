@@ -1,10 +1,10 @@
 import React from 'react';
 import '../css/RoomForm.css'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 
 const RoomForm = () => {
-const navigate = useNavigate();
+const history = useHistory();
     return (
         <div className="inputs-room-container">
             <div className="create-room-wrapper">
@@ -26,7 +26,7 @@ const navigate = useNavigate();
 
                 <div className="btnCreateRoomContainer">
                     <button className="btnCreateRoom" onClick={()=>{
-                        navigate('/canvasRoom');
+                        history.push('/canvasRoom');
                     }}>Create</button>
                 </div>
 

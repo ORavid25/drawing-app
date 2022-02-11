@@ -1,0 +1,22 @@
+{
+  "name": "drawing-app-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon App.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@okta/jwt-verifier": "^2.3.0",
+    "@okta/okta-sdk-nodejs": "github:okta/okta-sdk-nodejs",
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "socket.io": "^4.4.1"
+  },
+  "devDependencies": {
+    "moment": "^2.29.1",
+    "nodemon": "^2.0.15"
+  }
+}
