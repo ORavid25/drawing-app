@@ -14,7 +14,7 @@ const oktaClient = new okta.Client({
 
 const users = [];
 
-const authHandler = async (socket, next) => {
+const authHandler= async (socket, next)=> {
   const { token = null } = socket.handshake.query || {};
   if (token) {
     try {
