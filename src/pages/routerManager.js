@@ -5,14 +5,12 @@ import HomePage from "./homePage";
 import RoomsPage from "./RoomsPage";
 import { LoginCallback, Security } from '@okta/okta-react';
 import { OktaAuth, toRelativeUrl } from '@okta/okta-auth-js';
-import useAuth from '../users/useAuth';
 
 
 
 const RouterManager = () => {
   const history = useHistory();
-  // const [user, token] = useAuth();
-  // console.log("rm-", user);   
+
 
   const oktaAuth = new OktaAuth({
     issuer: `${process.env.REACT_APP_OKTA_ORG_URL}/oauth2/default`,
@@ -23,7 +21,7 @@ const RouterManager = () => {
 
 
   const restoreOriginalUri = async (_oktaAuth, originalUri) => {
-    history.replace(toRelativeUrl(originalUri || '/', window.location.origin));
+    history.replace(toRelativeUrl(originalUri || '/rooms', window.location.origin));
   };
   return (
 

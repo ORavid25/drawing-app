@@ -9,10 +9,11 @@ import {FaUserEdit} from "react-icons/fa";
 
 
 const HomePage = () => {
+
  
   return (
     <div className="main-wrapper">
-      <Header />
+      <Header  />
       <div className="main-container">
         <div className="logo-container">
           <img src={bigRoller} width="500" />
