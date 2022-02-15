@@ -17,6 +17,7 @@ const Header = () => {
     const login = async () => oktaAuth.signInWithRedirect('/');
     const logout = async () =>{
         oktaAuth.tokenManager.clear();
+        history.push('/')
         //setUser && token to NULL(global context)
     };
 
