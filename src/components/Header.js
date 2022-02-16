@@ -28,7 +28,7 @@ const Header = () => {
 
 
    
-    console.log("userAuth",userAuth);
+   
     return (
         <div className="header-container">
 

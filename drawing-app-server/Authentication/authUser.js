@@ -26,17 +26,20 @@ const authHandler= async (socket, next)=> {
       const { claims: { sub } } = await jwtVerifier.verifyAccessToken(tokenValue, 'api://default');
       const user = await oktaClient.getUser(sub);
 
-      users.set(socket, {
+      users.push(socket, {
         id: user.id,
         name: [user.profile.firstName, user.profile.lastName].filter(Boolean).join(' '),
       });
+      // console.log(users);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   }
 
   next();
 }
-module.exports = { authHandler };
+
+
+module.exports = authHandler ;
 
 

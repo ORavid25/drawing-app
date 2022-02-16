@@ -16,10 +16,10 @@ const RoomsPage = () => {
       <Header />
       <div className="main-container">
         <div className="create-room">
-          <RoomForm />
+          <RoomForm token={token} user={user}/>
         </div>
         <div className="roomDisplay-container">
-          <RoomsDisplay />
+          <RoomsDisplay token={token} user={user}/>
         </div>
       </div>
     </div>
