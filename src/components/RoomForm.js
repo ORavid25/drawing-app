@@ -2,23 +2,25 @@ import React, { useState } from 'react';
 import '../css/RoomForm.css'
 import { Link, useHistory } from 'react-router-dom';
 import { io } from 'socket.io-client';
+// import useAuth from '../users/useAuth';
 
 
-const RoomForm = ({ token, user }) => {
+const RoomForm = ({user,token}) => {
     const [roomName, setRoomName] = useState('');
     const [pass, setPass] = useState('');
-
-    const socket = io(`http://${window.location.hostname}:3000`, token && { query: { token } });
-
-    const createRoom = () => {
-        if (roomName !== null && pass !== null) {
-            socket.emit('createRoom',{name:user.name,roomName,pass});
-        }
-    }
-
-
-
+    const socket = io()
+    // const [user, token] = useAuth();
     const history = useHistory();
+
+
+    // const createRoom = () => {
+
+    //     if (roomName !== null) {
+    //         socket.on('joinRoom', { username: user.name, room: roomName });
+    //     }
+    // }
+
+
     return (
         <div className="inputs-room-container">
             <div className="create-room-wrapper">
@@ -43,13 +45,11 @@ const RoomForm = ({ token, user }) => {
                 </div>
 
                 <div className="btnCreateRoomContainer">
-                    <button className="btnCreateRoom" onClick={() => {
-                        {
-                            createRoom();
-
-                        }
-                        history.push('/canvasRoom');
-                    }}>Create</button>
+                    <Link to={`/canvasRoom?name=${user?.name &&user.name} &room=${roomName}`}>
+                        <button className="btnCreateRoom"
+                            type="submit">Create
+                        </button>
+                    </Link>
                 </div>
 
             </div>

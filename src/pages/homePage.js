@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState,useContext } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import bigRoller from "../assats/paintroller1.png";
@@ -6,10 +6,22 @@ import {  Link } from "react-router-dom";
 import {GoPaintcan} from "react-icons/go"
 import {FiUsers} from "react-icons/fi";
 import {FaUserEdit} from "react-icons/fa";
-
+import { io } from 'socket.io-client';
+import {SocialDrawerContext} from '../context';
+import useAuth from "../users/useAuth";
 
 const HomePage = () => {
+  const {socket,setSocket} = useContext(SocialDrawerContext);
+  const [user, token] = useAuth();
 
+  useEffect(() => {
+    const newSocket = io(`http://${window.location.hostname}:3000`, token && { query: { token } });
+    setSocket(newSocket);
+    
+  }, [setSocket,token]);
+
+  console.log("socket", socket);
+ 
  
   return (
     <div className="main-wrapper">

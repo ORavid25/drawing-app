@@ -4,12 +4,15 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import {SocialDrawerProvider} from './context';
 
 ReactDOM.render(
   <React.StrictMode>
+    <SocialDrawerProvider>
     <BrowserRouter>
       <App />
     </BrowserRouter>
+    </SocialDrawerProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
