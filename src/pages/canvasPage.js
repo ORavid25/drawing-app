@@ -3,6 +3,7 @@ import '../css/CanvasPage.css';
 import { io } from 'socket.io-client';
 import useAuth from "../users/useAuth";
 import { SocialDrawerContext } from '../context';
+import ChatMessage from '../components/ChatMessage';
 import queryString from 'query-string';
 
 const CanvasPage = ({ location }) => {
@@ -59,7 +60,7 @@ const CanvasPage = ({ location }) => {
                     {/* <h2>{message&&message}</h2> */}
                 </div>
                 <div className="chat">
-                    <h1>chat</h1>
+                    <ChatMessage/>
                 </div>
             </div>
 

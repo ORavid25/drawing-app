@@ -1,0 +1,39 @@
+/* Chat Component CSS */
+
+.chat-display {
+  max-height: 92vh;
+  overflow: auto;
+}
+
+.input-send-container {
+  background-color: green;
+  min-height: 8vh;
+  display: flex;
+}
+
+.input-div {
+  display: flex;
+  background-color: purple;
+  min-width: 300px;
+}
+.input-div > input {
+  font-size: 30px;
+  min-width: 90%;
+}
+
+.btn-div {
+  display: flex;
+  min-width: 84px;
+}
+
+.btn-div > button {
+  min-width: 100%;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.btn-div > button:hover {
+  background-color: #023e8a;
+  color: white;
+  cursor: pointer;
+}

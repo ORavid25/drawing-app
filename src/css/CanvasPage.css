@@ -1,23 +1,23 @@
-
-.container{
-    min-width: 100%;
-    min-height: 100vh;
+.container {
+  min-width: 100%;
+  min-height: 100vh;
 }
 
-.components-wrapper{
-    background-color:green;
-    min-width: 90%;
-    min-height:100vh;
-    display: flex;
-    flex-direction: row;
+.components-wrapper {
+  background-color: green;
+  min-width: 90%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
 }
 
-.canvas{
-    background-color:yellow;
-    width: 80%;
+.canvas {
+  background-color: yellow;
+  width: 80%;
 }
 
-.chat{
-    background-color:blue;
-    width: 20%;
+.chat {
+  background-color: blue;
+  width: 20%;
 }
+

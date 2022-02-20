@@ -1,0 +1,44 @@
+.messages-list{
+    min-width: 100%;
+    min-height:862px;
+    margin-top:10px;
+    overflow: scroll;
+    
+    
+}
+
+.messages-container{
+    display:flex;
+    max-width: 90%;
+    flex-wrap:wrap;
+    padding: 0.5rem; 
+    min-height: 100%;
+    border-radius: 15px;
+    flex-direction:column;
+    margin-left: 10px;
+    background-color:white;
+    margin-bottom:10px;
+}
+
+
+
+.user {
+    font-size: 0.625rem;
+    color: #888888;
+    
+}
+
+.date{
+    font-size: 0.625rem;
+    color: #888888;
+    margin-top:5px;
+}
+
+.message {
+    word-break: break-all;
+   }
+
+.short-message{
+    display:flex;
+    flex-grow:1;
+}
