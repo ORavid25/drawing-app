@@ -26,11 +26,10 @@ function ChatMessage({socket}) {
         <div className="btn-div">
           <button onClick={sendMessage} >Send</button>
         </div>
-
+        
         <div className="input-div">
           <input type="text" value={incomingMsg} onChange={(e) => setIncomingMsg(e.target.value)}/>
         </div>
-        
       </div>
     </div>
   );

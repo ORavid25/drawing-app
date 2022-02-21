@@ -4,6 +4,7 @@ import { io } from 'socket.io-client';
 import useAuth from "../users/useAuth";
 import { SocialDrawerContext } from '../context';
 import ChatMessage from '../components/ChatMessage';
+import Canvas from '../components/Canvas';
 import queryString from 'query-string';
 
 const CanvasPage = ({ location }) => {
@@ -55,9 +56,7 @@ const CanvasPage = ({ location }) => {
         <div className="container">
             <div className="components-wrapper">
                 <div className="canvas">
-                    <h1>canvas</h1>
-                    <button style={{ padding: 10 }} >delete</button>
-                    {/* <h2>{message&&message}</h2> */}
+                    <Canvas/>
                 </div>
                 <div className="chat">
                     <ChatMessage/>

@@ -6,7 +6,6 @@
 }
 
 .input-send-container {
-  background-color: green;
   min-height: 8vh;
   display: flex;
 }
@@ -14,11 +13,13 @@
 .input-div {
   display: flex;
   background-color: purple;
-  min-width: 300px;
+  width: 100%;
+ 
 }
 .input-div > input {
   font-size: 30px;
-  min-width: 90%;
+  
+  width: 100%;
 }
 
 .btn-div {
