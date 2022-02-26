@@ -17,8 +17,10 @@ const HomePage = () => {
   useEffect(() => {
     const newSocket = io(`http://${window.location.hostname}:3000`, token && { query: { token } });
     setSocket(newSocket);
-    
-  }, [setSocket,token]);
+    return ()=>{
+      newSocket.disconnect()
+    }
+  }, []);
 
   console.log("socket", socket);
  

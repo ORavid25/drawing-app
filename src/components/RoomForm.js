@@ -5,20 +5,23 @@ import { io } from 'socket.io-client';
 // import useAuth from '../users/useAuth';
 
 
-const RoomForm = ({user,token}) => {
+const RoomForm = ({ user, token, setToTrueIfRoomCreate }) => {
     const [roomName, setRoomName] = useState('');
     const [pass, setPass] = useState('');
-    const socket = io()
-    // const [user, token] = useAuth();
+    const socket = io(`http://${window.location.hostname}:3000`)
     const history = useHistory();
 
 
-    // const createRoom = () => {
+    const sendResBack = () => {
+        let res = true;
+        console.log("res: " + res);
+        setToTrueIfRoomCreate(res)
+    }
 
-    //     if (roomName !== null) {
-    //         socket.on('joinRoom', { username: user.name, room: roomName });
-    //     }
-    // }
+    const createRoom = () => {
+        socket.emit('createRoom', { username: user.name, roomName: roomName, Password: pass })
+        
+    }
 
 
     return (
@@ -45,11 +48,15 @@ const RoomForm = ({user,token}) => {
                 </div>
 
                 <div className="btnCreateRoomContainer">
-                    <Link to={`/canvasRoom?name=${user?.name &&user.name} &room=${roomName}`}>
-                        <button className="btnCreateRoom"
-                            type="submit">Create
-                        </button>
-                    </Link>
+                    
+                    <button className="btnCreateRoom"
+                        onClick={() => {
+                            sendResBack()
+                            createRoom()
+                        }}
+                        type="submit">Create
+                    </button>
+
                 </div>
 
             </div>

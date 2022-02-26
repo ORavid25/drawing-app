@@ -2,56 +2,50 @@ import React, { useEffect, useState, useContext } from 'react';
 import '../css/CanvasPage.css';
 import { io } from 'socket.io-client';
 import useAuth from "../users/useAuth";
-import { SocialDrawerContext } from '../context';
+
 import ChatMessage from '../components/ChatMessage';
 import Canvas from '../components/Canvas';
 import queryString from 'query-string';
+import {SocialDrawerContext} from "../context";
+
 
 const CanvasPage = ({ location }) => {
     const [user, token] = useAuth();
     const [message, setMessage] = useState('');
     const [room, setRoom] = useState('');
     const [userName, setUserName] = useState('');
-    let socket;
-    const ENDPOINT = 'http://localhost:3000/';
-
-//     const getUserName=async () => {
-//         let userName = await user.name;
-//         console.log("userName",userName);
-//         setUserName(userName);
-//     }
-// useEffect(() => {
-//     getUserName();
-// }, [user]);
-
+    const socket = io(`http://${window.location.hostname}:3000`,token && { query: { token } })
+    // const {socket} = useContext(SocialDrawerContext);
+    
+const joinRoom=()=>{
+    const { name, room } = queryString.parse(location.search);
+    console.log("name: " + name);
+    setRoom(room);
+    socket.emit('joinRoom', { username:name, roomName:room,Password:'' }, (error) => {
+        if (error) {
+            console.log("Error to join room")
+        }
+    });
+}
 
 
     useEffect(() => {
-        const { name, room } = queryString.parse(location.search);
-
-        socket = io(ENDPOINT);
-        setRoom(room);
-
-        socket.emit('joinRoom', { username:name, room }, (error) => {
-          
-            if (error) {
-                console.log("Error to join room")
-            }
-        });
-    }, [ENDPOINT, location.search]);
+        joinRoom();
+    },[]);
 
     useEffect(() => {
      console.log("socket",socket);
      socket.on('message', (msg) => {
-         console.log("fromuef msg",msg);
         setMessage(msg)
     })
-    }, [socket]);
 
+    }, [socket]);
+  
 
 
 
     console.log("msg", message);
+    
     return (
         <div className="container">
             <div className="components-wrapper">

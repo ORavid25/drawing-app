@@ -28,31 +28,49 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(cors());
 app.use(router);
 
-const rooms = [];
+const rooms =[]
+const outputRooms=[]
+
 
 //Running when client connect to socket
 io.use(authHandler)
 // Run when client connects
 io.on('connection', (socket) => {
     console.log("New WS connection");
-    console.log("rooms: " + rooms.length);
-    
-    socket.on('joinRoom', ({ username, room }) => {
-        io.to(room).emit('message',{msg:'Welcome to Chat!'} );
-        const user = userJoin(socket.id, username, room);
-       
-        socket.join(user.room);
-        console.log("socketRoom",socket.rooms);
+      // send rooms to client
+    socket.emit("getRooms",{
+        rooms:rooms
+    });
+// create room and push it to array
+    socket.on('createRoom',({username,roomName,Password})=>{
+        const user = userJoin(socket.id, username, roomName);
+        rooms.push({roomName,Password,user})
+
+        console.log("User Created",rooms)
+    })
+
+    // join to room from client ui into the server  
+    socket.on('joinRoom', ({ username, roomName, Password }) => {
+         console.log("roomName",roomName);
+         console.log("username",username);
+        io.to(roomName).emit('message',{msg:'Welcome to Chat!'} );
+        if(Password!==''){
+            console.log("hass password");
+        }
+        else{
+            socket.join(roomName)
+        }
         console.log("rooms",rooms);
-        rooms.push({room,username});
-        // Welcome current user
         
+        // console.log("outputRooms",outputRooms);
+        // Welcome current user
+
         // Broadcast when a user connects
         socket.broadcast
-            .to(user.room)
+            .to(roomName)
             .emit(
                 'message',
-                formatMessage("admin", `${user.username} has joined the chat`)
+                formatMessage("admin", `${username} has joined the chat`)
             );
 
 
@@ -70,19 +88,18 @@ io.on('connection', (socket) => {
             if (user) {
                 io.to(user.room).emit(
                     'message',
-                    formatMessage("admin", `${user.username} has left the chat`)
+                    formatMessage("admin", `${username} has left the chat`)
                 );
 
                 // Send users and room info
-                io.to(user.room).emit('roomUsers', {
+                io.to(user.room).emit('roomsData', {
                     room: user.room,
                     users: getRoomUsers(user.room)
                 });
-
-              
             }
         });
     });
+
 });
 const PORT = 3000 || process.env.PORT;
 
