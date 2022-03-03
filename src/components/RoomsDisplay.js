@@ -3,13 +3,17 @@ import "../css/RoomsDisplay.css";
 import { FcLock, FcUnlock } from 'react-icons/fc';
 import { Link,useHistory } from 'react-router-dom';
 
-const RoomCard = ({ room, user }) => {
+
+
+const RoomCard = ({ room, user,setShowModal,setModalRoomName }) => {
+
   const history = useHistory();
-  console.log("room", room.roomName);
 
   const checkIfLocked = () => {
     if (room.Password !== '') {
       console.log("has password");
+      setShowModal(true);
+      setModalRoomName(room.roomName);
     }
     else {
       history.push(`/canvasRoom?name=${user?.name && user.name} &room=${room.roomName}`)
@@ -34,13 +38,13 @@ const RoomCard = ({ room, user }) => {
   );
 };
 
-const RoomsDisplay = ({ token, user, roomsData }) => {
+const RoomsDisplay = ({ setShowModal, user, roomsData,setModalRoomName }) => {
 
 
   return (
     <div className="rooms-container">
       {roomsData ? roomsData.map((room, index) => (
-        <RoomCard room={room} index={index} user={user} />
+        <RoomCard room={room} index={index} user={user} setShowModal={setShowModal} setModalRoomName={setModalRoomName} />
       )) : <h1>nooo roomss</h1>}
     </div>
   );

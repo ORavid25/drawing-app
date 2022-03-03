@@ -28,40 +28,60 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(cors());
 app.use(router);
 
-const rooms =[]
-const outputRooms=[]
+const rooms = []
+const outputRooms = []
+let resIfJoin = false;
 
 
 //Running when client connect to socket
 io.use(authHandler)
 // Run when client connects
 io.on('connection', (socket) => {
-    console.log("New WS connection");
-      // send rooms to client
-    socket.emit("getRooms",{
-        rooms:rooms
+    // send rooms to client
+    socket.emit("getRooms", {
+        rooms: rooms
     });
-// create room and push it to array
-    socket.on('createRoom',({username,roomName,Password})=>{
+    // create room and push it to array
+    socket.on('createRoom', ({ username, roomName, Password }) => {
         const user = userJoin(socket.id, username, roomName);
-        rooms.push({roomName,Password,user})
+        let checkIfRoomExist = rooms.find(room => room.roomName === roomName);
+        if (checkIfRoomExist) {
+            console.log("room already exists");
+            return;
+        }
+        rooms.push({ roomName, Password, user })
 
-        console.log("User Created",rooms)
-    })
+        console.log("User Created", rooms)
+    });
+
+    socket.emit("passwordValid",
+        resIfJoin
+    )
 
     // join to room from client ui into the server  
     socket.on('joinRoom', ({ username, roomName, Password }) => {
-         console.log("roomName",roomName);
-         console.log("username",username);
-        io.to(roomName).emit('message',{msg:'Welcome to Chat!'} );
-        if(Password!==''){
-            console.log("hass password");
+        if (Password !== '') {
+            let room = rooms.find(r => r.roomName === roomName);
+            if (room.Password === Password) {
+                console.log("PasswordCorrect!");
+                resIfJoin = true;
+                socket.join(roomName);
+            }
+            else {
+                console.log("Password Not Correct")
+                resIfJoin = false;
+            }
         }
-        else{
+        else {
             socket.join(roomName)
         }
-        console.log("rooms",rooms);
-        
+        console.log("resIfJoin", resIfJoin);
+
+        ////////
+        io.to(roomName).emit('message', { msg: 'Welcome to Chat!' });
+
+        console.log("rooms", rooms);
+
         // console.log("outputRooms",outputRooms);
         // Welcome current user
 

@@ -1,0 +1,22 @@
+.modalContainer{
+    min-width:40%;
+    min-height:40%;
+    position:absolute;
+    background-color: rgba(246, 246, 246, 1);
+    top: 50%;  /* position the top  edge of the element at the middle of the parent */
+    left: 50%; /* position the left edge of the element at the middle of the parent */
+    transform: translate(-50%, -50%); 
+    border-radius: 15px;
+}
+
+.btnContainer{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btnCloseClick{
+    width: 100%;
+    margin-bottom: 5px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}

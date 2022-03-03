@@ -21,7 +21,7 @@ const joinRoom=()=>{
     const { name, room } = queryString.parse(location.search);
     console.log("name: " + name);
     setRoom(room);
-    socket.emit('joinRoom', { username:name, roomName:room,Password:'' }, (error) => {
+     socket.emit('joinRoom', { username:name, roomName:room,Password:'' }, (error) => {
         if (error) {
             console.log("Error to join room")
         }
